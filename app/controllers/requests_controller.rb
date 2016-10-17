@@ -53,5 +53,7 @@ class RequestsController < ApplicationController
   end
 
   def search
+    @q = params[:q]
+    @request = Request.where(["name ILIKE ?", "%#{@q}%"]).order("name") + Request.where(["email ILIKE ?", "%#{@q}%"]).order("email") + Request.where(["department ILIKE ?", "%#{@q}%"]) + Request.where(["message ILIKE ?", "%#{@q}%"])
   end
 end
