@@ -54,7 +54,9 @@ class RequestsController < ApplicationController
 
   def search
     @q = params[:q]
-    @request = (Request.where(["name ILIKE ?", "%#{@q}%"]).order("name") + Request.where(["email ILIKE ?", "%#{@q}%"]).order("email") + Request.where(["department ILIKE ?", "%#{@q}%"]) + Request.where(["message ILIKE ?", "%#{@q}%"]))
+    # @request = (Request.where(["name ILIKE ?", "%#{@q}%"]).order("name").page + Request.where(["email ILIKE ?", "%#{@q}%"]).order("email").page + Request.where(["department ILIKE ?", "%#{@q}%"]).order("department").page + Request.where(["message ILIKE ?", "%#{@q}%"]).order("message").page)
+
+    @request = Request.where(["name ILIKE ? OR email ILIKE ? OR department ILIKE ? or message ILIKE ?", "%#{@q}%", "%#{@q}%", "%#{@q}%", "%#{@q}%"]).order(:status, :name).page params[:page]
 
   end
 end
