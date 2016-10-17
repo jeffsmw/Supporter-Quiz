@@ -1,0 +1,25 @@
+<h1>New Request</h1>
+
+<%= form_for @request do |r| %>
+  <div>
+    <%= r.label :name %>
+    <%= r.text_field :name %>
+  </div>
+  <div>
+    <%= r.label :email %>
+    <%= r.text_field :email %>
+  </div>
+  <div>
+    <%= r.radio_button :department, "sales" %>
+    <%= r.label :department, "Sales" %>
+    <%= r.radio_button :department, "marketing" %>
+    <%= r.label :department, "Marketing" %>
+    <%= r.radio_button :department, "technical" %>
+    <%= r.label :department, "Technical" %>
+  </div>
+  <div>
+    <%= r.label :message %>
+    <%= r.text_area :message %>
+  </div>
+  <%= r.submit %>
+<% end %>
