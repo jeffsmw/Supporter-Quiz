@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Assumptions made in this quiz:
 
-Things you may want to cover:
+* Validation only checks if there is something in the fields.
+EX: The email field does not need @ sign
 
-* Ruby version
+* Only the pagination during "Search" will result in a Search page. Clicking on edit, delete, and done/undone will result in the requests page.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Too lazy to put the search back in the search field, so I just stuck it in a paragraph tag.
