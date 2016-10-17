@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @request = Request.order(status: :desc)
+    @request = Request.order(status: :desc).page params[:page]
   end
 
   def edit
@@ -54,6 +54,7 @@ class RequestsController < ApplicationController
 
   def search
     @q = params[:q]
-    @request = Request.where(["name ILIKE ?", "%#{@q}%"]).order("name") + Request.where(["email ILIKE ?", "%#{@q}%"]).order("email") + Request.where(["department ILIKE ?", "%#{@q}%"]) + Request.where(["message ILIKE ?", "%#{@q}%"])
+    @request = (Request.where(["name ILIKE ?", "%#{@q}%"]).order("name") + Request.where(["email ILIKE ?", "%#{@q}%"]).order("email") + Request.where(["department ILIKE ?", "%#{@q}%"]) + Request.where(["message ILIKE ?", "%#{@q}%"]))
+
   end
 end

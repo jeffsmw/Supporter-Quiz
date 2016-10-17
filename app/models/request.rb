@@ -1,4 +1,6 @@
 class Request < ApplicationRecord
+  paginates_per 7
+
   validates :name, presence: true
   validates :email, presence: true
   validates :department, presence: true
